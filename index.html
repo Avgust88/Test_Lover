@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Для Анечки ❤️</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:Georgia,serif;background:radial-gradient(circle at 50% 35%,#ffb1d0,#ef6fa6 35%,#9e285f 68%,#350a29);color:white}
+.screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:1s}
+.hidden{opacity:0;pointer-events:none;transform:scale(.96)}
+.intro{text-align:center;font-size:clamp(34px,9vw,55px);font-weight:bold;text-shadow:0 4px 20px #7d174e;animation:in 2s}
+@keyframes in{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+.envelope{position:relative;width:min(84vw,390px);height:250px;cursor:pointer;filter:drop-shadow(0 18px 25px #57052f88)}
+.env{position:absolute;inset:0;background:#fff1f7;border-radius:8px}
+.flap{position:absolute;z-index:4;top:0;left:0;width:0;height:0;border-left:195px solid transparent;border-right:195px solid transparent;border-top:125px solid #ffd7e7;transform-origin:top;transition:1s}
+.pocket{position:absolute;z-index:3;bottom:0;left:0;width:0;height:0;border-left:195px solid transparent;border-right:195px solid transparent;border-bottom:135px solid #ffc2da}
+.label{position:absolute;z-index:5;inset:0;display:flex;align-items:center;justify-content:center;color:#8d1c55;font-size:34px;font-weight:bold}
+.hint{margin-top:18px;font-family:Arial;font-size:15px}
+.letter{position:absolute;z-index:6;left:8%;right:8%;top:12%;height:76%;background:#fffafc;color:#8a2457;padding:25px 18px;transform:translateY(90px);opacity:0;transition:1s;text-align:center;box-shadow:0 8px 20px #9a285555}
+.open .flap{transform:rotateX(180deg);z-index:2}.open .letter{transform:translateY(-35px);opacity:1}
+.letter h2{font-size:20px;margin:0 0 15px}.letter p{font-size:19px;line-height:1.4;margin:8px 0}.sign{font-style:italic;font-size:16px;margin-top:12px}
+.cta{margin-top:18px;border:0;border-radius:999px;padding:14px 18px;background:#d91d69;color:white;font-family:Arial;font-size:15px;font-weight:bold;box-shadow:0 6px 20px #8a0f4d66}
+.float{position:fixed;color:white;opacity:.35;animation:float 9s linear infinite;z-index:1}
+@keyframes float{from{transform:translateY(110vh)}to{transform:translateY(-20vh) rotate(360deg)}}
+</style></head><body>
+<div id="intro" class="screen"><div class="intro">Анечка,<br>это тебе ❤️</div></div>
+<div id="envScreen" class="screen hidden">
+<div id="envelope" class="envelope" onclick="openEnv()">
+<div class="env"></div>
+<div class="letter">
+<h2>это тебе, любимая ❤️</h2>
+<p>Анечка, спасибо, что ты всегда рядом со мной, очень сильно тебя люблю!</p>
+<div class="sign">Твой любимый мальчик</div>
+<button class="cta" onclick="go(event)">я люблю тебя, нажми сюда ❤️</button>
+</div>
+<div class="pocket"></div><div class="flap"></div><div class="label">Открой</div>
+</div><div class="hint">Нажми на конверт</div></div>
+<script>
+setTimeout(()=>{intro.classList.add('hidden');envScreen.classList.remove('hidden')},2800);
+function openEnv(){envelope.classList.add('open')}
+function go(e){e.stopPropagation();location.href='https://www.tiktok.com/@in.the.night.vibe/video/7681007046187257109'}
+for(let i=0;i<30;i++){let s=document.createElement('div');s.className='float';s.textContent=Math.random()>.2?'♥':'♡';s.style.left=Math.random()*100+'vw';s.style.animationDelay=(-Math.random()*9)+'s';s.style.animationDuration=(6+Math.random()*8)+'s';s.style.fontSize=(14+Math.random()*22)+'px';document.body.appendChild(s)}
+</script></body></html>
