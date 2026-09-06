@@ -4,155 +4,73 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Анечка ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Marck+Script&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;height:100%;overflow:hidden}
-body{
-font-family:Georgia,"Times New Roman",serif;
-background:radial-gradient(circle at 50% 10%,#ffb7d5 0%,#ef70aa 30%,#b72e70 62%,#570c38 100%);
-}
+body{font-family:Georgia,serif;background:radial-gradient(circle at 50% 10%,#ffb7d5 0%,#ef70aa 30%,#b72e70 62%,#570c38 100%)}
 #hearts{position:fixed;inset:0;overflow:hidden;pointer-events:none}
 .heart{position:absolute;color:rgba(255,245,250,.48);animation:float linear infinite}
-@keyframes float{from{transform:translateY(105vh) rotate(0deg)}to{transform:translateY(-15vh) rotate(360deg)}}
-
+@keyframes float{from{transform:translateY(105vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
 .page{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:14px;transition:.7s}
-.hide{opacity:0;visibility:hidden;pointer-events:none;transform:scale(.96)}
-
+.hide{opacity:0!important;visibility:hidden!important;pointer-events:none!important;transform:scale(.96)}
 .intro{text-align:center;color:white;text-shadow:0 5px 25px #6c123f}
 .intro .small{font:11px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;opacity:.8;margin-bottom:15px}
 .intro h1{font-size:clamp(40px,10vw,60px);line-height:1.05;margin:0}
 .fadein{animation:fadein 1.5s ease}
 @keyframes fadein{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
-
-.card{
-position:relative;width:min(92vw,430px);height:min(86vh,610px);min-height:480px;
-border-radius:28px;overflow:hidden;
-background:radial-gradient(circle at 72% 15%,rgba(255,255,255,.13),transparent 25%),linear-gradient(160deg,#d84b8d,#a42764 52%,#5a1039);
-box-shadow:0 25px 55px rgba(45,0,25,.35),inset 0 0 0 1px rgba(255,255,255,.2);
-}
+.card{position:relative;width:min(92vw,430px);height:min(86vh,610px);min-height:480px;border-radius:28px;overflow:hidden;background:radial-gradient(circle at 72% 15%,rgba(255,255,255,.13),transparent 25%),linear-gradient(160deg,#d84b8d,#a42764 52%,#5a1039);box-shadow:0 25px 55px rgba(45,0,25,.35),inset 0 0 0 1px rgba(255,255,255,.2)}
 .card:before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,#fff 1px,transparent 1.5px);background-size:55px 55px;opacity:.3}
-
 .state{position:absolute;inset:0;transition:opacity .6s,transform .6s}
 .closed{display:flex;align-items:center;justify-content:center}
 .closed.out{opacity:0;visibility:hidden;pointer-events:none;transform:scale(.9) translateY(-20px)}
-
-.envelope{
-position:absolute;width:84%;aspect-ratio:1.62;left:8%;top:27%;
-filter:drop-shadow(0 20px 22px rgba(30,0,20,.4));cursor:pointer;
-}
+.envelope{position:absolute;width:84%;aspect-ratio:1.62;left:8%;top:27%;filter:drop-shadow(0 20px 22px rgba(30,0,20,.4));cursor:pointer}
 .env{position:absolute;inset:0;background:linear-gradient(145deg,#fff,#eeeaf1);border-radius:15px;overflow:hidden}
 .env:before{content:"";position:absolute;inset:0;background:linear-gradient(35deg,transparent 49.5%,#d4cfda 50%,transparent 50.6%),linear-gradient(145deg,transparent 49.5%,#d4cfda 50%,transparent 50.6%)}
 .pocket{position:absolute;z-index:2;left:0;right:0;bottom:0;height:76%;background:linear-gradient(145deg,#f8f6fa,#e3e0e8);clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);border-radius:0 0 15px 15px}
 .flap{position:absolute;z-index:5;left:0;top:0;width:100%;height:59%;background:linear-gradient(145deg,#fff,#e7e4ec);clip-path:polygon(0 0,100% 0,50% 100%)}
-.seal{position:absolute;z-index:8;left:50%;top:53%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 25%,#dcb8ff,#9962c5 60%,#683796);border:4px solid #ad78d8;color:#eadcff;font:31px Georgia;box-shadow:0 5px 12px #2d003c55}
-.name{position:absolute;z-index:8;left:0;right:0;top:69%;text-align:center;color:#5c5068;font:600 34px "Brush Script MT","Segoe Script",cursive}
-.instruction{position:absolute;left:0;right:0;top:66%;text-align:center;color:#f4ddec;font:500 29px "Brush Script MT","Segoe Script",cursive}
-
+.seal{position:absolute;z-index:8;left:50%;top:53%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 25%,#dcb8ff,#9962c5 60%,#683796);border:4px solid #ad78d8;color:#eadcff;font:31px Georgia;box-shadow:0 5px 12px #2d003c55,0 0 20px #d9b3ff66}
+.name{position:absolute;z-index:8;left:0;right:0;top:68%;text-align:center;color:#654f78;font-family:"Marck Script","Caveat",cursive;font-size:clamp(37px,10vw,48px);font-weight:500;line-height:1;text-shadow:0 2px 1px rgba(255,255,255,.8),0 3px 8px rgba(80,20,90,.15)}
+.instruction{position:absolute;left:0;right:0;top:66%;text-align:center;color:#f4ddec;font-family:"Marck Script","Caveat",cursive;font-size:clamp(27px,7vw,34px);line-height:1}
 .opened{opacity:0;visibility:hidden;pointer-events:none;transform:scale(1.02)}
 .opened.show{opacity:1;visibility:visible;pointer-events:auto;transform:none}
-
-.letter{
-position:absolute;left:8%;right:8%;top:13%;height:59%;
-background:linear-gradient(180deg,#fffaff,#f8f2fb);border-radius:18px;
-padding:24px 20px;color:#26203d;
-box-shadow:0 18px 32px rgba(25,0,30,.35);
-display:flex;flex-direction:column;justify-content:center;
-}
-.letter:after{content:"";position:absolute;left:10%;right:10%;bottom:16%;height:1px;background:rgba(180,160,190,.2)}
-.to{font:600 clamp(24px,7vw,31px) "Brush Script MT","Segoe Script",cursive;color:#a96fc9;margin-bottom:14px}
-.message{font:500 clamp(20px,5.8vw,26px) "Brush Script MT","Segoe Script",cursive;line-height:1.3}
-.signature{font:500 clamp(19px,5.5vw,25px) "Brush Script MT","Segoe Script",cursive;color:#827398;text-align:right;margin-top:18px}
-
-.video{
-position:absolute;left:8%;right:8%;bottom:9%;height:auto;min-height:52px;
-border:0;border-radius:999px;background:linear-gradient(135deg,#ffd982,#ffc45a);
-color:#392039;font:700 15px Arial,sans-serif;
-box-shadow:0 10px 25px rgba(40,0,30,.3);cursor:pointer;padding:15px 12px;
-}
-
-@media(max-height:680px){
-.card{height:88vh;min-height:440px}
-.envelope{top:25%}
-.instruction{top:64%}
-.letter{top:10%;height:58%;padding:17px}
-.to{font-size:23px;margin-bottom:8px}.message{font-size:19px}.signature{font-size:19px;margin-top:10px}
-.video{bottom:7%;padding:13px 10px;font-size:14px}
-}
-@media(max-width:360px){
-.card{width:96vw}
-.letter{left:6%;right:6%;padding:15px}
-.to{font-size:22px}.message{font-size:18px}.signature{font-size:18px}
-.video{left:6%;right:6%;font-size:13px}
-}
+.letter{position:absolute;left:8%;right:8%;top:13%;height:59%;background:linear-gradient(180deg,#fffaff,#f8f2fb);border-radius:18px;padding:24px 20px;color:#26203d;box-shadow:0 18px 32px rgba(25,0,30,.35);display:flex;flex-direction:column;justify-content:center}
+.to{font:600 clamp(27px,7vw,34px) "Marck Script","Caveat",cursive;color:#a96fc9;margin-bottom:14px}
+.message{font:500 clamp(21px,5.8vw,27px) "Marck Script","Caveat",cursive;line-height:1.3}
+.signature{font:500 clamp(21px,5.5vw,26px) "Marck Script","Caveat",cursive;color:#827398;text-align:right;margin-top:18px}
+.video{position:absolute;left:8%;right:8%;bottom:9%;border:0;border-radius:999px;background:linear-gradient(135deg,#ffd982,#ffc45a);color:#392039;font:700 15px Arial,sans-serif;box-shadow:0 10px 25px rgba(40,0,30,.3);cursor:pointer;padding:15px 12px}
+@media(max-height:680px){.card{height:88vh;min-height:440px}.envelope{top:25%}.instruction{top:64%}.letter{top:10%;height:58%;padding:17px}.to{font-size:25px;margin-bottom:8px}.message{font-size:20px}.signature{font-size:20px;margin-top:10px}.video{bottom:7%;padding:13px 10px;font-size:14px}}
+@media(max-width:360px){.card{width:96vw}.letter{left:6%;right:6%;padding:15px}.to{font-size:24px}.message{font-size:19px}.signature{font-size:19px}.video{left:6%;right:6%;font-size:13px}}
 </style>
 </head>
 <body>
 <div id="hearts"></div>
-
-<div id="intro" class="page">
- <div class="intro fadein">
-  <div class="small">маленькое послание</div>
-  <h1>Анечка,<br>это тебе ❤️</h1>
- </div>
+<div id="intro" class="page"><div class="intro fadein"><div class="small">маленькое послание</div><h1>Анечка,<br>это тебе ❤️</h1></div></div>
+<div id="main" class="page hide"><div class="card">
+<div id="closed" class="state closed">
+<div class="envelope" onclick="openLetter()">
+<div class="env"></div><div class="pocket"></div><div class="flap"></div>
+<div class="seal">A</div><div class="name">Анечка</div>
 </div>
-
-<div id="main" class="page hide">
- <div class="card">
-
-  <!-- Состояние ДО нажатия: это отдельный блок -->
-  <div id="closed" class="state closed">
-   <div class="envelope" onclick="openLetter()">
-    <div class="env"></div>
-    <div class="pocket"></div>
-    <div class="flap"></div>
-    <div class="seal">A</div>
-    <div class="name">Анечка</div>
-   </div>
-   <div class="instruction">нажми на конверт</div>
-  </div>
-
-  <!-- Состояние ПОСЛЕ нажатия: старой надписи здесь физически нет -->
-  <div id="opened" class="state opened">
-   <div class="letter">
-    <div class="to">это тебе, любимая ❤️</div>
-    <div class="message">Анечка, спасибо, что ты всегда рядом со мной, очень сильно тебя люблю!</div>
-    <div class="signature">Твой любимый мальчик</div>
-   </div>
-   <button class="video" onclick="openVideo(event)">я люблю тебя, нажми сюда ❤️</button>
-  </div>
-
- </div>
+<div class="instruction">нажми на конверт</div>
 </div>
-
+<div id="opened" class="state opened">
+<div class="letter">
+<div class="to">это тебе, любимая ❤️</div>
+<div class="message">Анечка, спасибо, что ты всегда рядом со мной, очень сильно тебя люблю!</div>
+<div class="signature">Твой любимый мальчик</div>
+</div>
+<button class="video" onclick="openVideo(event)">я люблю тебя, нажми сюда ❤️</button>
+</div>
+</div></div>
 <script>
-setTimeout(function(){
- document.getElementById('intro').classList.add('hide');
- document.getElementById('main').classList.remove('hide');
-},3000);
-
+setTimeout(()=>{document.getElementById('intro').classList.add('hide');document.getElementById('main').classList.remove('hide')},3000);
 let opened=false;
-function openLetter(){
- if(opened)return;
- opened=true;
- document.getElementById('closed').classList.add('out');
- setTimeout(function(){
-   document.getElementById('opened').classList.add('show');
- },450);
-}
-function openVideo(e){
- e.stopPropagation();
- window.location.href='https://www.tiktok.com/@in.the.night.vibe/video/7681007046187257109';
-}
-for(let i=0;i<30;i++){
- let h=document.createElement('span');
- h.className='heart';
- h.textContent=Math.random()>.2?'♥':'♡';
- h.style.left=Math.random()*100+'vw';
- h.style.animationDelay=(-Math.random()*9)+'s';
- h.style.animationDuration=(6+Math.random()*7)+'s';
- h.style.fontSize=(12+Math.random()*18)+'px';
- document.getElementById('hearts').appendChild(h);
-}
+function openLetter(){if(opened)return;opened=true;document.getElementById('closed').classList.add('out');setTimeout(()=>document.getElementById('opened').classList.add('show'),450)}
+function openVideo(e){e.stopPropagation();location.href='https://www.tiktok.com/@in.the.night.vibe/video/7681007046187257109'}
+for(let i=0;i<30;i++){let h=document.createElement('span');h.className='heart';h.textContent=Math.random()>.2?'♥':'♡';h.style.left=Math.random()*100+'vw';h.style.animationDelay=(-Math.random()*9)+'s';h.style.animationDuration=(6+Math.random()*7)+'s';h.style.fontSize=(12+Math.random()*18)+'px';document.getElementById('hearts').appendChild(h)}
 </script>
 </body>
 </html>
