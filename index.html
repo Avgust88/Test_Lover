@@ -1,183 +1,152 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Для Анечки ❤️</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Анечка ❤️</title>
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;height:100%;overflow:hidden}
 body{
- margin:0;background:
- radial-gradient(circle at 50% 12%,#ffb8d7 0,transparent 30%),
- linear-gradient(160deg,#f17caf 0%,#bd3678 50%,#5c0e3c 100%);
- color:#fff;font-family:Arial,sans-serif;
+font-family:Georgia,"Times New Roman",serif;
+background:radial-gradient(circle at 50% 10%,#ffb7d5 0%,#ef70aa 30%,#b72e70 62%,#570c38 100%);
 }
 #hearts{position:fixed;inset:0;overflow:hidden;pointer-events:none}
-.h{position:absolute;color:rgba(255,238,247,.5);animation:rise linear infinite}
-@keyframes rise{from{transform:translateY(110vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
+.heart{position:absolute;color:rgba(255,245,250,.48);animation:float linear infinite}
+@keyframes float{from{transform:translateY(105vh) rotate(0deg)}to{transform:translateY(-15vh) rotate(360deg)}}
 
-.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:16px;transition:opacity .7s,transform .7s}
-.hidden{opacity:0!important;pointer-events:none!important;transform:scale(.97)}
-.intro{text-align:center;text-shadow:0 5px 25px #711242;animation:appear 1.5s ease}
-.intro small{display:block;letter-spacing:3px;text-transform:uppercase;font-size:10px;opacity:.8;margin-bottom:14px}
-.intro h1{font:700 clamp(38px,10vw,58px)/1.05 Georgia,serif;margin:0}
-@keyframes appear{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.page{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:14px;transition:.7s}
+.hide{opacity:0;visibility:hidden;pointer-events:none;transform:scale(.96)}
 
-.stage{
- position:relative;width:min(92vw,430px);height:min(82vh,610px);min-height:480px;
- border-radius:28px;overflow:hidden;
- background:
- radial-gradient(circle at 70% 16%,rgba(255,255,255,.12),transparent 24%),
- linear-gradient(160deg,#d94b8d,#a62966 50%,#5b1039);
- box-shadow:0 25px 55px rgba(45,0,25,.35),inset 0 0 0 1px rgba(255,255,255,.18);
+.intro{text-align:center;color:white;text-shadow:0 5px 25px #6c123f}
+.intro .small{font:11px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;opacity:.8;margin-bottom:15px}
+.intro h1{font-size:clamp(40px,10vw,60px);line-height:1.05;margin:0}
+.fadein{animation:fadein 1.5s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+
+.card{
+position:relative;width:min(92vw,430px);height:min(86vh,610px);min-height:480px;
+border-radius:28px;overflow:hidden;
+background:radial-gradient(circle at 72% 15%,rgba(255,255,255,.13),transparent 25%),linear-gradient(160deg,#d84b8d,#a42764 52%,#5a1039);
+box-shadow:0 25px 55px rgba(45,0,25,.35),inset 0 0 0 1px rgba(255,255,255,.2);
 }
-.stage:before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,#fff 1px,transparent 1.5px);background-size:56px 56px;opacity:.32}
+.card:before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,#fff 1px,transparent 1.5px);background-size:55px 55px;opacity:.3}
+
+.state{position:absolute;inset:0;transition:opacity .6s,transform .6s}
+.closed{display:flex;align-items:center;justify-content:center}
+.closed.out{opacity:0;visibility:hidden;pointer-events:none;transform:scale(.9) translateY(-20px)}
 
 .envelope{
- position:absolute;left:50%;top:39%;transform:translate(-50%,-50%);
- width:min(86%,370px);aspect-ratio:1.62;cursor:pointer;
- filter:drop-shadow(0 20px 20px rgba(35,0,20,.4));z-index:5;
+position:absolute;width:84%;aspect-ratio:1.62;left:8%;top:27%;
+filter:drop-shadow(0 20px 22px rgba(30,0,20,.4));cursor:pointer;
 }
-.base{
- position:absolute;inset:0;border-radius:15px;background:linear-gradient(145deg,#fff,#eeeaf1);
- box-shadow:inset 0 0 0 1px #fff;overflow:hidden;
-}
-.base:after{
- content:"";position:absolute;inset:0;
- background:linear-gradient(35deg,transparent 49.5%,#d5d0da 50%,transparent 50.7%),
- linear-gradient(145deg,transparent 49.5%,#d5d0da 50%,transparent 50.7%);
- opacity:.75;
-}
-.pocket{
- position:absolute;z-index:3;left:0;right:0;bottom:0;height:75%;
- background:linear-gradient(145deg,#f9f7fb,#e4e1e9);
- clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);
- border-radius:0 0 15px 15px;
-}
-.flap{
- position:absolute;z-index:8;left:0;top:0;width:100%;height:59%;
- background:linear-gradient(145deg,#fff,#e6e3eb);
- clip-path:polygon(0 0,100% 0,50% 100%);
- transform-origin:50% 0;
- transition:transform 1s cubic-bezier(.2,.8,.2,1);
-}
-.seal{
- position:absolute;z-index:10;left:50%;top:52%;transform:translate(-50%,-50%);
- width:63px;height:63px;border-radius:50%;
- display:flex;align-items:center;justify-content:center;
- color:#eadcff;font:32px Georgia,serif;
- background:radial-gradient(circle at 35% 25%,#d9b3ff,#9960c6 60%,#683796);
- border:4px solid #ad79d8;
- box-shadow:0 5px 12px #2d003c55,0 0 20px #d9b3ff66;
- transition:.55s;
-}
-.name{
- position:absolute;z-index:10;left:0;right:0;top:68%;
- text-align:center;color:#5b5067;
- font:600 35px "Brush Script MT","Segoe Script",cursive;
- transition:.55s;
-}
-.hint{
- position:absolute;left:0;right:0;top:64%;z-index:2;
- text-align:center;color:#f2dbea;
- font:500 clamp(25px,7vw,31px) "Brush Script MT","Segoe Script",cursive;
- transition:opacity .35s,transform .35s;
-}
-.hint.gone{opacity:0;transform:translateY(12px);visibility:hidden}
+.env{position:absolute;inset:0;background:linear-gradient(145deg,#fff,#eeeaf1);border-radius:15px;overflow:hidden}
+.env:before{content:"";position:absolute;inset:0;background:linear-gradient(35deg,transparent 49.5%,#d4cfda 50%,transparent 50.6%),linear-gradient(145deg,transparent 49.5%,#d4cfda 50%,transparent 50.6%)}
+.pocket{position:absolute;z-index:2;left:0;right:0;bottom:0;height:76%;background:linear-gradient(145deg,#f8f6fa,#e3e0e8);clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);border-radius:0 0 15px 15px}
+.flap{position:absolute;z-index:5;left:0;top:0;width:100%;height:59%;background:linear-gradient(145deg,#fff,#e7e4ec);clip-path:polygon(0 0,100% 0,50% 100%)}
+.seal{position:absolute;z-index:8;left:50%;top:53%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 25%,#dcb8ff,#9962c5 60%,#683796);border:4px solid #ad78d8;color:#eadcff;font:31px Georgia;box-shadow:0 5px 12px #2d003c55}
+.name{position:absolute;z-index:8;left:0;right:0;top:69%;text-align:center;color:#5c5068;font:600 34px "Brush Script MT","Segoe Script",cursive}
+.instruction{position:absolute;left:0;right:0;top:66%;text-align:center;color:#f4ddec;font:500 29px "Brush Script MT","Segoe Script",cursive}
+
+.opened{opacity:0;visibility:hidden;pointer-events:none;transform:scale(1.02)}
+.opened.show{opacity:1;visibility:visible;pointer-events:auto;transform:none}
 
 .letter{
- position:absolute;z-index:9;left:8%;right:8%;top:13%;height:58%;
- border-radius:18px;
- background:linear-gradient(180deg,#fffaff,#f8f2fb);
- color:#27213f;padding:24px 20px;
- box-shadow:0 18px 30px rgba(30,0,30,.34);
- display:flex;flex-direction:column;justify-content:center;
- opacity:0;transform:translateY(45px) scale(.96);
- transition:opacity .75s .35s,transform .75s .35s;
+position:absolute;left:8%;right:8%;top:13%;height:59%;
+background:linear-gradient(180deg,#fffaff,#f8f2fb);border-radius:18px;
+padding:24px 20px;color:#26203d;
+box-shadow:0 18px 32px rgba(25,0,30,.35);
+display:flex;flex-direction:column;justify-content:center;
 }
-.to{font:600 clamp(25px,7vw,31px) "Brush Script MT","Segoe Script",cursive;color:#a86fc9;margin-bottom:13px}
-.msg{font:500 clamp(20px,5.7vw,26px) "Brush Script MT","Segoe Script",cursive;line-height:1.28}
-.sign{font:500 clamp(20px,5.5vw,25px) "Brush Script MT","Segoe Script",cursive;color:#827399;text-align:right;margin-top:18px}
+.letter:after{content:"";position:absolute;left:10%;right:10%;bottom:16%;height:1px;background:rgba(180,160,190,.2)}
+.to{font:600 clamp(24px,7vw,31px) "Brush Script MT","Segoe Script",cursive;color:#a96fc9;margin-bottom:14px}
+.message{font:500 clamp(20px,5.8vw,26px) "Brush Script MT","Segoe Script",cursive;line-height:1.3}
+.signature{font:500 clamp(19px,5.5vw,25px) "Brush Script MT","Segoe Script",cursive;color:#827398;text-align:right;margin-top:18px}
 
-.cta{
- position:absolute;z-index:20;left:8%;right:8%;bottom:8%;
- border:0;border-radius:999px;padding:15px 12px;
- background:linear-gradient(135deg,#ffd983,#ffc45a);
- color:#392039;font:700 15px Arial,sans-serif;
- box-shadow:0 10px 25px rgba(40,0,30,.3);
- cursor:pointer;opacity:0;transform:translateY(14px);
- pointer-events:none;transition:opacity .5s .65s,transform .5s .65s;
+.video{
+position:absolute;left:8%;right:8%;bottom:9%;height:auto;min-height:52px;
+border:0;border-radius:999px;background:linear-gradient(135deg,#ffd982,#ffc45a);
+color:#392039;font:700 15px Arial,sans-serif;
+box-shadow:0 10px 25px rgba(40,0,30,.3);cursor:pointer;padding:15px 12px;
 }
-.open .flap{transform:rotateX(180deg);z-index:2}
-.open .seal,.open .name{opacity:0}
-.open .letter{opacity:1;transform:translateY(0) scale(1)}
-.open .cta{opacity:1;transform:none;pointer-events:auto}
 
 @media(max-height:680px){
- .stage{height:86vh;min-height:450px}
- .envelope{top:36%;width:84%}
- .letter{top:10%;height:58%;padding:17px}
- .to{font-size:23px;margin-bottom:8px}
- .msg{font-size:19px}
- .sign{font-size:19px;margin-top:10px}
- .hint{top:62%}
- .cta{bottom:7%;padding:13px 10px;font-size:14px}
+.card{height:88vh;min-height:440px}
+.envelope{top:25%}
+.instruction{top:64%}
+.letter{top:10%;height:58%;padding:17px}
+.to{font-size:23px;margin-bottom:8px}.message{font-size:19px}.signature{font-size:19px;margin-top:10px}
+.video{bottom:7%;padding:13px 10px;font-size:14px}
 }
 @media(max-width:360px){
- .stage{width:96vw}
- .letter{left:6%;right:6%;padding:15px}
- .to{font-size:22px}.msg{font-size:18px}.sign{font-size:18px}
- .cta{left:6%;right:6%;font-size:13px}
+.card{width:96vw}
+.letter{left:6%;right:6%;padding:15px}
+.to{font-size:22px}.message{font-size:18px}.signature{font-size:18px}
+.video{left:6%;right:6%;font-size:13px}
 }
 </style>
 </head>
 <body>
 <div id="hearts"></div>
 
-<section id="intro" class="screen">
- <div class="intro"><small>маленькое послание</small><h1>Анечка,<br>это тебе ❤️</h1></div>
-</section>
-
-<section id="main" class="screen hidden">
- <div class="stage">
-  <div id="envelope" class="envelope" onclick="openEnvelope()">
-   <div class="base"></div>
-   <div class="pocket"></div>
-   <div class="flap"></div>
-   <div class="seal">A</div>
-   <div class="name">Анечка</div>
-   <div class="letter">
-    <div class="to">это тебе, Анечка ❤️</div>
-    <div class="msg">Анечка, спасибо, что ты всегда рядом со мной, очень сильно тебя люблю!</div>
-    <div class="sign">Твой любимый мальчик</div>
-   </div>
-  </div>
-  <div id="hint" class="hint">нажми на конверт</div>
-  <button class="cta" onclick="openVideo(event)">я люблю тебя, нажми сюда ❤️</button>
+<div id="intro" class="page">
+ <div class="intro fadein">
+  <div class="small">маленькое послание</div>
+  <h1>Анечка,<br>это тебе ❤️</h1>
  </div>
-</section>
+</div>
+
+<div id="main" class="page hide">
+ <div class="card">
+
+  <!-- Состояние ДО нажатия: это отдельный блок -->
+  <div id="closed" class="state closed">
+   <div class="envelope" onclick="openLetter()">
+    <div class="env"></div>
+    <div class="pocket"></div>
+    <div class="flap"></div>
+    <div class="seal">A</div>
+    <div class="name">Анечка</div>
+   </div>
+   <div class="instruction">нажми на конверт</div>
+  </div>
+
+  <!-- Состояние ПОСЛЕ нажатия: старой надписи здесь физически нет -->
+  <div id="opened" class="state opened">
+   <div class="letter">
+    <div class="to">это тебе, любимая ❤️</div>
+    <div class="message">Анечка, спасибо, что ты всегда рядом со мной, очень сильно тебя люблю!</div>
+    <div class="signature">Твой любимый мальчик</div>
+   </div>
+   <button class="video" onclick="openVideo(event)">я люблю тебя, нажми сюда ❤️</button>
+  </div>
+
+ </div>
+</div>
 
 <script>
-setTimeout(()=>{
- document.getElementById('intro').classList.add('hidden');
- document.getElementById('main').classList.remove('hidden');
+setTimeout(function(){
+ document.getElementById('intro').classList.add('hide');
+ document.getElementById('main').classList.remove('hide');
 },3000);
 
 let opened=false;
-function openEnvelope(){
+function openLetter(){
  if(opened)return;
  opened=true;
- document.getElementById('envelope').classList.add('open');
- document.getElementById('hint').classList.add('gone');
+ document.getElementById('closed').classList.add('out');
+ setTimeout(function(){
+   document.getElementById('opened').classList.add('show');
+ },450);
 }
 function openVideo(e){
  e.stopPropagation();
- location.href='https://www.tiktok.com/@in.the.night.vibe/video/7681007046187257109';
+ window.location.href='https://www.tiktok.com/@in.the.night.vibe/video/7681007046187257109';
 }
 for(let i=0;i<30;i++){
- const h=document.createElement('span');
- h.className='h';h.textContent=Math.random()>.2?'♥':'♡';
+ let h=document.createElement('span');
+ h.className='heart';
+ h.textContent=Math.random()>.2?'♥':'♡';
  h.style.left=Math.random()*100+'vw';
  h.style.animationDelay=(-Math.random()*9)+'s';
  h.style.animationDuration=(6+Math.random()*7)+'s';
