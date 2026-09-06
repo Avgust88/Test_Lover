@@ -4,95 +4,128 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Для Анечки ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <style>
-:root{--pink:#ff4f9a;--rose:#ff78b5;--deep:#250719;--paper:#fff8fc}
 *{box-sizing:border-box}
 html,body{margin:0;width:100%;height:100%;overflow:hidden}
-body{font-family:Georgia,"Times New Roman",serif;background:
-radial-gradient(circle at 50% 12%,#ffbad8 0,transparent 32%),
-radial-gradient(circle at 15% 90%,#a31d62 0,transparent 38%),
-radial-gradient(circle at 85% 75%,#7d174e 0,transparent 40%),
-linear-gradient(145deg,#ff8fbe,#9e2863 52%,#2b071b);
-color:#fff}
-body:after{content:"";position:fixed;inset:0;pointer-events:none;background:
-linear-gradient(120deg,transparent 0 47%,rgba(255,255,255,.13) 50%,transparent 53%);
-opacity:.35}
-#sparkles,.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
-.spark{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 10px #fff;animation:twinkle 2.5s infinite}
-@keyframes twinkle{0%,100%{opacity:.1;transform:scale(.5)}50%{opacity:.9;transform:scale(1.3)}}
-.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:22px;transition:opacity .8s,transform .8s;z-index:2}
-.hidden{opacity:0;pointer-events:none;transform:scale(.97)}
-.intro{text-align:center;animation:intro 1.8s ease both}
-.intro .mini{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:4px;font-size:11px;opacity:.8;margin-bottom:14px}
-.intro h1{font-size:clamp(38px,10vw,64px);line-height:1.05;margin:0;color:#fff;text-shadow:0 4px 25px #741040}
-.intro .heart{display:inline-block;color:#ffdeec;animation:pulse 1.3s infinite}
-@keyframes intro{from{opacity:0;transform:translateY(22px) scale(.96)}to{opacity:1;transform:none}}
-@keyframes pulse{50%{transform:scale(1.2)}}
+body{
+  font-family:Comfortaa,Arial,sans-serif;color:#fff;
+  background:
+    radial-gradient(circle at 50% 8%,rgba(255,185,216,.95),transparent 31%),
+    radial-gradient(circle at 8% 85%,rgba(255,70,151,.45),transparent 34%),
+    radial-gradient(circle at 94% 65%,rgba(126,15,77,.6),transparent 38%),
+    linear-gradient(150deg,#ff94c1 0%,#c43a7d 48%,#4a0c35 100%);
+}
+#particles{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.p{position:absolute;color:rgba(255,255,255,.55);font-size:15px;animation:rise linear infinite}
+@keyframes rise{from{transform:translateY(110vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
 
-.wrap{width:min(94vw,430px);display:flex;flex-direction:column;align-items:center}
-.envelope{position:relative;width:min(88vw,390px);height:min(56vw,245px);max-height:245px;min-height:190px;cursor:pointer;perspective:900px;filter:drop-shadow(0 22px 28px rgba(45,0,25,.38))}
-.env{position:absolute;inset:0;border-radius:14px;background:linear-gradient(145deg,#fff7fb,#ffd7e8);box-shadow:inset 0 0 0 1px #fff,0 0 0 1px rgba(118,16,71,.2);overflow:hidden}
-.env:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 49%,#ffc1da 50%,transparent 51%),linear-gradient(225deg,transparent 49%,#ffc1da 50%,transparent 51%);opacity:.9}
-.pocket{position:absolute;inset:auto 0 0 0;height:72%;z-index:4;background:linear-gradient(160deg,#ffd4e5,#ffb8d3);clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);border-radius:0 0 14px 14px}
-.flap{position:absolute;z-index:7;top:0;left:0;width:100%;height:56%;background:linear-gradient(145deg,#ffeaf3,#ffc4dc);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform 1s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 2px 2px rgba(130,20,75,.12))}
-.seal{position:absolute;z-index:9;left:50%;top:45%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff86b8,#d91f6d 65%,#9c124b);display:flex;align-items:center;justify-content:center;font-size:25px;box-shadow:0 5px 12px #7d164e55,0 0 18px #ff7db4aa;transition:.6s}
-.label{position:absolute;z-index:10;left:50%;top:65%;transform:translate(-50%,-50%);color:#8e1e57;font-size:clamp(27px,8vw,38px);font-weight:bold;white-space:nowrap;text-shadow:0 1px #fff}
-.hint{margin-top:17px;font-family:Arial,sans-serif;font-size:13px;letter-spacing:.3px;opacity:.86}
+.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;transition:opacity .8s,transform .8s}
+.hidden{opacity:0;pointer-events:none;transform:scale(.97)}
+.intro{text-align:center;animation:show 1.8s ease both;text-shadow:0 5px 25px #6c1744}
+.intro small{display:block;letter-spacing:3px;text-transform:uppercase;font-size:11px;opacity:.8;margin-bottom:14px}
+.intro h1{margin:0;font-size:clamp(38px,10vw,58px);line-height:1.05}
+.intro b{color:#ffe4f0}
+@keyframes show{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
+
+.stage{width:min(92vw,430px);display:flex;flex-direction:column;align-items:center}
+.scene{position:relative;width:100%;height:min(72vh,520px);min-height:430px;border-radius:26px;
+background:radial-gradient(circle at 55% 20%,rgba(255,255,255,.12),transparent 22%),linear-gradient(145deg,#d94b8b,#9c245f 48%,#561032);
+box-shadow:inset 0 0 0 1px rgba(255,255,255,.22),0 25px 50px rgba(65,4,36,.3);overflow:hidden}
+.scene:before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,#fff 1px,transparent 1.5px);background-size:57px 57px;opacity:.38}
+.glow{position:absolute;width:220px;height:220px;right:-90px;top:-80px;background:#ffd1e5;border-radius:50%;filter:blur(55px);opacity:.2}
+
+.envelope{
+position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);
+width:86%;height:220px;cursor:pointer;z-index:4;
+filter:drop-shadow(0 18px 25px rgba(40,0,20,.38));perspective:900px;
+}
+.envbody{position:absolute;inset:0;background:linear-gradient(145deg,#fffaff,#f5dfea);border-radius:15px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.8);overflow:hidden}
+.envbody:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,transparent 49.5%,#dfbfd0 50%,transparent 50.5%),linear-gradient(35deg,transparent 49.5%,#dfbfd0 50%,transparent 50.5%);opacity:.7}
+.pocket{position:absolute;z-index:3;left:0;right:0;bottom:0;height:72%;background:linear-gradient(150deg,#fbeaf3,#eac9dc);clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);border-radius:0 0 15px 15px}
+.flap{position:absolute;z-index:7;left:0;top:0;width:100%;height:58%;background:linear-gradient(145deg,#fffaff,#e8d8e5);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.seal{position:absolute;z-index:9;left:50%;top:51%;transform:translate(-50%,-50%);width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+background:radial-gradient(circle at 35% 25%,#d8a8ff,#8751bc 65%,#633290);font-family:Georgia;font-size:27px;box-shadow:0 5px 12px #26002d66,0 0 18px #d8a8ff88;transition:.5s}
+.name{position:absolute;z-index:10;left:0;right:0;top:68%;text-align:center;color:#665070;font:600 31px Caveat,cursive}
+.label{position:absolute;z-index:11;left:50%;top:32%;transform:translate(-50%,-50%);color:#fff;font-size:26px;font-weight:700;text-shadow:0 2px 8px #7d174e;opacity:0;transition:.4s}
+.hint{font:500 25px Caveat,cursive;position:absolute;left:0;right:0;top:79%;text-align:center;color:#f3d9eb;z-index:3}
 .open .flap{transform:rotateX(180deg)}
-.open .seal,.open .label{opacity:0;transform:translate(-50%,-50%) scale(.7)}
-.letter{position:absolute;z-index:6;left:7%;right:7%;top:8%;height:84%;padding:25px 20px 18px;background:linear-gradient(#fffafd,#fff0f7);border-radius:11px;color:#8a2457;text-align:center;box-shadow:0 8px 25px rgba(87,5,47,.25);transform:translateY(18%);opacity:0;transition:1s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;align-items:center;justify-content:center}
-.open .letter{transform:translateY(-24%);opacity:1;z-index:8}
-.letter h2{font-size:clamp(17px,5vw,21px);margin:0 0 13px;font-weight:bold}
-.letter p{font-size:clamp(16px,4.7vw,19px);line-height:1.42;margin:0;max-width:310px}
-.sign{margin-top:13px;font-size:15px;font-style:italic}
-.cta{margin-top:18px;border:0;border-radius:999px;padding:13px 18px;background:linear-gradient(135deg,#ff4f98,#d51c68);color:#fff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;box-shadow:0 8px 22px #a5165c55;cursor:pointer;max-width:100%;white-space:normal}
-.cta:active{transform:scale(.97)}
-.floating{position:absolute;color:#fff;opacity:.28;animation:float 8s linear infinite}
-@keyframes float{from{transform:translateY(105vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
-@media(max-height:650px){.letter{padding:15px}.letter h2{margin-bottom:8px}.letter p{font-size:15px}.sign{margin-top:7px}.cta{margin-top:10px;padding:10px 15px}.envelope{height:190px}}
+.open .seal,.open .name{opacity:0}
+.open .hint{opacity:0;transform:translateY(10px)}
+.open .label{opacity:0}
+
+.letter{
+position:absolute;z-index:8;left:8%;right:8%;top:12%;height:65%;
+background:linear-gradient(180deg,#fffaff,#f9f3fb);border-radius:18px;
+padding:25px 22px;color:#222044;text-align:left;box-shadow:0 15px 30px #26002d55;
+transform:translateY(42px);opacity:0;transition:1s cubic-bezier(.2,.8,.2,1);
+display:flex;flex-direction:column;justify-content:center;
+}
+.open .letter{transform:translateY(0);opacity:1}
+.letter .to{font:600 clamp(25px,7vw,31px) Caveat,cursive;color:#b079cf;margin-bottom:16px}
+.letter .msg{font:500 clamp(21px,5.8vw,27px) Caveat,cursive;line-height:1.32}
+.letter .sign{font:500 clamp(21px,5.5vw,26px) Caveat,cursive;color:#81739c;text-align:right;margin-top:22px}
+.cta{position:absolute;left:8%;right:8%;bottom:9%;z-index:10;border:0;border-radius:999px;padding:15px 18px;background:linear-gradient(135deg,#ffd878,#ffc65b);color:#3b2041;font:700 15px Comfortaa,Arial,sans-serif;box-shadow:0 8px 22px #2b002e55;cursor:pointer;transition:.2s}
+.cta:active{transform:scale(.98)}
+.open .cta{opacity:1}
+@media(max-height:680px){
+ .scene{height:84vh;min-height:410px}
+ .envelope{height:190px}
+ .letter{height:68%;padding:18px}
+ .letter .msg{font-size:21px}
+ .letter .sign{margin-top:13px}
+ .cta{bottom:6%;padding:12px 15px}
+}
+@media(max-width:360px){
+ .scene{width:96vw}
+ .letter{left:6%;right:6%}
+ .letter .to{font-size:24px}
+ .letter .msg{font-size:19px}
+ .letter .sign{font-size:19px}
+ .cta{left:6%;right:6%;font-size:13px}
+}
 </style>
 </head>
 <body>
-<div id="sparkles"></div><div class="hearts"></div>
+<div id="particles"></div>
+
 <section id="intro" class="screen">
-  <div class="intro"><div class="mini">маленькое послание для тебя</div>
-  <h1>Анечка,<br>это тебе <span class="heart">♥</span></h1></div>
+ <div class="intro"><small>маленькое послание</small><h1>Анечка,<br><b>это тебе ❤️</b></h1></div>
 </section>
 
-<section id="envScreen" class="screen hidden">
-  <div class="wrap">
-    <div id="envelope" class="envelope" onclick="openEnvelope()">
-      <div class="env"></div>
-      <div class="letter">
-        <h2>это тебе, любимая ❤️</h2>
-        <p>Анечка, спасибо, что ты всегда рядом со мной, очень сильно тебя люблю!</p>
-        <div class="sign">Твой любимый мальчик</div>
-        <button class="cta" onclick="goVideo(event)">я люблю тебя, нажми сюда ❤️</button>
-      </div>
-      <div class="pocket"></div>
-      <div class="flap"></div>
-      <div class="label">Открой</div>
-      <div class="seal">♥</div>
+<section id="main" class="screen hidden">
+ <div class="stage">
+  <div class="scene">
+   <div class="glow"></div>
+   <div id="envelope" class="envelope" onclick="openLetter()">
+    <div class="envbody"></div>
+    <div class="letter">
+      <div class="to">это тебе, Анечка ❤️</div>
+      <div class="msg">Анечка, спасибо, что ты всегда рядом со мной, очень сильно тебя люблю!</div>
+      <div class="sign">Твой любимый мальчик</div>
     </div>
-    <div class="hint">Нажми на конверт</div>
+    <div class="pocket"></div>
+    <div class="flap"></div>
+    <div class="seal">A</div>
+    <div class="name">Анечка</div>
+   </div>
+   <div class="hint">нажми на конверт</div>
+   <button class="cta" onclick="go(event)">я люблю тебя, нажми сюда ❤️</button>
   </div>
+ </div>
 </section>
 
 <script>
-setTimeout(()=>{document.getElementById('intro').classList.add('hidden');document.getElementById('envScreen').classList.remove('hidden')},3000);
-function openEnvelope(){document.getElementById('envelope').classList.add('open')}
-function goVideo(e){e.stopPropagation();location.href='https://www.tiktok.com/@in.the.night.vibe/video/7681007046187257109'}
-for(let i=0;i<32;i++){
- const s=document.createElement('div');s.className='spark';
- s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';
- s.style.animationDelay=(-Math.random()*2.5)+'s';s.style.animationDuration=(1.8+Math.random()*2)+'s';
- document.getElementById('sparkles').appendChild(s);
-}
-for(let i=0;i<20;i++){
- const h=document.createElement('span');h.className='floating';h.textContent=Math.random()>.25?'♥':'♡';
- h.style.left=Math.random()*100+'vw';h.style.animationDelay=(-Math.random()*8)+'s';
- h.style.animationDuration=(6+Math.random()*6)+'s';h.style.fontSize=(12+Math.random()*20)+'px';
- document.querySelector('.hearts').appendChild(h);
+setTimeout(()=>{intro.classList.add('hidden');main.classList.remove('hidden')},3000);
+function openLetter(){envelope.classList.add('open')}
+function go(e){e.stopPropagation();location.href='https://www.tiktok.com/@in.the.night.vibe/video/7681007046187257109'}
+for(let i=0;i<35;i++){
+ let x=document.createElement('span');x.className='p';x.textContent=Math.random()>.2?'♥':'♡';
+ x.style.left=Math.random()*100+'vw';x.style.animationDelay=(-Math.random()*9)+'s';
+ x.style.animationDuration=(6+Math.random()*8)+'s';x.style.fontSize=(10+Math.random()*18)+'px';
+ particles.appendChild(x);
 }
 </script>
 </body></html>
