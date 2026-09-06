@@ -1,42 +1,98 @@
 <!doctype html>
-<html lang="ru"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Для Анечки ❤️</title>
 <style>
-*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}
-body{font-family:Georgia,serif;background:radial-gradient(circle at 50% 35%,#ffb1d0,#ef6fa6 35%,#9e285f 68%,#350a29);color:white}
-.screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:1s}
-.hidden{opacity:0;pointer-events:none;transform:scale(.96)}
-.intro{text-align:center;font-size:clamp(34px,9vw,55px);font-weight:bold;text-shadow:0 4px 20px #7d174e;animation:in 2s}
-@keyframes in{from{opacity:0;transform:translateY(25px)}to{opacity:1;transform:none}}
-.envelope{position:relative;width:min(84vw,390px);height:250px;cursor:pointer;filter:drop-shadow(0 18px 25px #57052f88)}
-.env{position:absolute;inset:0;background:#fff1f7;border-radius:8px}
-.flap{position:absolute;z-index:4;top:0;left:0;width:0;height:0;border-left:195px solid transparent;border-right:195px solid transparent;border-top:125px solid #ffd7e7;transform-origin:top;transition:1s}
-.pocket{position:absolute;z-index:3;bottom:0;left:0;width:0;height:0;border-left:195px solid transparent;border-right:195px solid transparent;border-bottom:135px solid #ffc2da}
-.label{position:absolute;z-index:5;inset:0;display:flex;align-items:center;justify-content:center;color:#8d1c55;font-size:34px;font-weight:bold}
-.hint{margin-top:18px;font-family:Arial;font-size:15px}
-.letter{position:absolute;z-index:6;left:8%;right:8%;top:12%;height:76%;background:#fffafc;color:#8a2457;padding:25px 18px;transform:translateY(90px);opacity:0;transition:1s;text-align:center;box-shadow:0 8px 20px #9a285555}
-.open .flap{transform:rotateX(180deg);z-index:2}.open .letter{transform:translateY(-35px);opacity:1}
-.letter h2{font-size:20px;margin:0 0 15px}.letter p{font-size:19px;line-height:1.4;margin:8px 0}.sign{font-style:italic;font-size:16px;margin-top:12px}
-.cta{margin-top:18px;border:0;border-radius:999px;padding:14px 18px;background:#d91d69;color:white;font-family:Arial;font-size:15px;font-weight:bold;box-shadow:0 6px 20px #8a0f4d66}
-.float{position:fixed;color:white;opacity:.35;animation:float 9s linear infinite;z-index:1}
-@keyframes float{from{transform:translateY(110vh)}to{transform:translateY(-20vh) rotate(360deg)}}
-</style></head><body>
-<div id="intro" class="screen"><div class="intro">Анечка,<br>это тебе ❤️</div></div>
-<div id="envScreen" class="screen hidden">
-<div id="envelope" class="envelope" onclick="openEnv()">
-<div class="env"></div>
-<div class="letter">
-<h2>это тебе, любимая ❤️</h2>
-<p>Анечка, спасибо, что ты всегда рядом со мной, очень сильно тебя люблю!</p>
-<div class="sign">Твой любимый мальчик</div>
-<button class="cta" onclick="go(event)">я люблю тебя, нажми сюда ❤️</button>
-</div>
-<div class="pocket"></div><div class="flap"></div><div class="label">Открой</div>
-</div><div class="hint">Нажми на конверт</div></div>
+:root{--pink:#ff4f9a;--rose:#ff78b5;--deep:#250719;--paper:#fff8fc}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{font-family:Georgia,"Times New Roman",serif;background:
+radial-gradient(circle at 50% 12%,#ffbad8 0,transparent 32%),
+radial-gradient(circle at 15% 90%,#a31d62 0,transparent 38%),
+radial-gradient(circle at 85% 75%,#7d174e 0,transparent 40%),
+linear-gradient(145deg,#ff8fbe,#9e2863 52%,#2b071b);
+color:#fff}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;background:
+linear-gradient(120deg,transparent 0 47%,rgba(255,255,255,.13) 50%,transparent 53%);
+opacity:.35}
+#sparkles,.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.spark{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 10px #fff;animation:twinkle 2.5s infinite}
+@keyframes twinkle{0%,100%{opacity:.1;transform:scale(.5)}50%{opacity:.9;transform:scale(1.3)}}
+.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:22px;transition:opacity .8s,transform .8s;z-index:2}
+.hidden{opacity:0;pointer-events:none;transform:scale(.97)}
+.intro{text-align:center;animation:intro 1.8s ease both}
+.intro .mini{font-family:Arial,sans-serif;text-transform:uppercase;letter-spacing:4px;font-size:11px;opacity:.8;margin-bottom:14px}
+.intro h1{font-size:clamp(38px,10vw,64px);line-height:1.05;margin:0;color:#fff;text-shadow:0 4px 25px #741040}
+.intro .heart{display:inline-block;color:#ffdeec;animation:pulse 1.3s infinite}
+@keyframes intro{from{opacity:0;transform:translateY(22px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes pulse{50%{transform:scale(1.2)}}
+
+.wrap{width:min(94vw,430px);display:flex;flex-direction:column;align-items:center}
+.envelope{position:relative;width:min(88vw,390px);height:min(56vw,245px);max-height:245px;min-height:190px;cursor:pointer;perspective:900px;filter:drop-shadow(0 22px 28px rgba(45,0,25,.38))}
+.env{position:absolute;inset:0;border-radius:14px;background:linear-gradient(145deg,#fff7fb,#ffd7e8);box-shadow:inset 0 0 0 1px #fff,0 0 0 1px rgba(118,16,71,.2);overflow:hidden}
+.env:before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 49%,#ffc1da 50%,transparent 51%),linear-gradient(225deg,transparent 49%,#ffc1da 50%,transparent 51%);opacity:.9}
+.pocket{position:absolute;inset:auto 0 0 0;height:72%;z-index:4;background:linear-gradient(160deg,#ffd4e5,#ffb8d3);clip-path:polygon(0 0,50% 55%,100% 0,100% 100%,0 100%);border-radius:0 0 14px 14px}
+.flap{position:absolute;z-index:7;top:0;left:0;width:100%;height:56%;background:linear-gradient(145deg,#ffeaf3,#ffc4dc);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform 1s cubic-bezier(.2,.8,.2,1);filter:drop-shadow(0 2px 2px rgba(130,20,75,.12))}
+.seal{position:absolute;z-index:9;left:50%;top:45%;transform:translate(-50%,-50%);width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff86b8,#d91f6d 65%,#9c124b);display:flex;align-items:center;justify-content:center;font-size:25px;box-shadow:0 5px 12px #7d164e55,0 0 18px #ff7db4aa;transition:.6s}
+.label{position:absolute;z-index:10;left:50%;top:65%;transform:translate(-50%,-50%);color:#8e1e57;font-size:clamp(27px,8vw,38px);font-weight:bold;white-space:nowrap;text-shadow:0 1px #fff}
+.hint{margin-top:17px;font-family:Arial,sans-serif;font-size:13px;letter-spacing:.3px;opacity:.86}
+.open .flap{transform:rotateX(180deg)}
+.open .seal,.open .label{opacity:0;transform:translate(-50%,-50%) scale(.7)}
+.letter{position:absolute;z-index:6;left:7%;right:7%;top:8%;height:84%;padding:25px 20px 18px;background:linear-gradient(#fffafd,#fff0f7);border-radius:11px;color:#8a2457;text-align:center;box-shadow:0 8px 25px rgba(87,5,47,.25);transform:translateY(18%);opacity:0;transition:1s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.open .letter{transform:translateY(-24%);opacity:1;z-index:8}
+.letter h2{font-size:clamp(17px,5vw,21px);margin:0 0 13px;font-weight:bold}
+.letter p{font-size:clamp(16px,4.7vw,19px);line-height:1.42;margin:0;max-width:310px}
+.sign{margin-top:13px;font-size:15px;font-style:italic}
+.cta{margin-top:18px;border:0;border-radius:999px;padding:13px 18px;background:linear-gradient(135deg,#ff4f98,#d51c68);color:#fff;font-family:Arial,sans-serif;font-size:14px;font-weight:bold;box-shadow:0 8px 22px #a5165c55;cursor:pointer;max-width:100%;white-space:normal}
+.cta:active{transform:scale(.97)}
+.floating{position:absolute;color:#fff;opacity:.28;animation:float 8s linear infinite}
+@keyframes float{from{transform:translateY(105vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
+@media(max-height:650px){.letter{padding:15px}.letter h2{margin-bottom:8px}.letter p{font-size:15px}.sign{margin-top:7px}.cta{margin-top:10px;padding:10px 15px}.envelope{height:190px}}
+</style>
+</head>
+<body>
+<div id="sparkles"></div><div class="hearts"></div>
+<section id="intro" class="screen">
+  <div class="intro"><div class="mini">маленькое послание для тебя</div>
+  <h1>Анечка,<br>это тебе <span class="heart">♥</span></h1></div>
+</section>
+
+<section id="envScreen" class="screen hidden">
+  <div class="wrap">
+    <div id="envelope" class="envelope" onclick="openEnvelope()">
+      <div class="env"></div>
+      <div class="letter">
+        <h2>это тебе, любимая ❤️</h2>
+        <p>Анечка, спасибо, что ты всегда рядом со мной, очень сильно тебя люблю!</p>
+        <div class="sign">Твой любимый мальчик</div>
+        <button class="cta" onclick="goVideo(event)">я люблю тебя, нажми сюда ❤️</button>
+      </div>
+      <div class="pocket"></div>
+      <div class="flap"></div>
+      <div class="label">Открой</div>
+      <div class="seal">♥</div>
+    </div>
+    <div class="hint">Нажми на конверт</div>
+  </div>
+</section>
+
 <script>
-setTimeout(()=>{intro.classList.add('hidden');envScreen.classList.remove('hidden')},2800);
-function openEnv(){envelope.classList.add('open')}
-function go(e){e.stopPropagation();location.href='https://www.tiktok.com/@in.the.night.vibe/video/7681007046187257109'}
-for(let i=0;i<30;i++){let s=document.createElement('div');s.className='float';s.textContent=Math.random()>.2?'♥':'♡';s.style.left=Math.random()*100+'vw';s.style.animationDelay=(-Math.random()*9)+'s';s.style.animationDuration=(6+Math.random()*8)+'s';s.style.fontSize=(14+Math.random()*22)+'px';document.body.appendChild(s)}
-</script></body></html>
+setTimeout(()=>{document.getElementById('intro').classList.add('hidden');document.getElementById('envScreen').classList.remove('hidden')},3000);
+function openEnvelope(){document.getElementById('envelope').classList.add('open')}
+function goVideo(e){e.stopPropagation();location.href='https://www.tiktok.com/@in.the.night.vibe/video/7681007046187257109'}
+for(let i=0;i<32;i++){
+ const s=document.createElement('div');s.className='spark';
+ s.style.left=Math.random()*100+'vw';s.style.top=Math.random()*100+'vh';
+ s.style.animationDelay=(-Math.random()*2.5)+'s';s.style.animationDuration=(1.8+Math.random()*2)+'s';
+ document.getElementById('sparkles').appendChild(s);
+}
+for(let i=0;i<20;i++){
+ const h=document.createElement('span');h.className='floating';h.textContent=Math.random()>.25?'♥':'♡';
+ h.style.left=Math.random()*100+'vw';h.style.animationDelay=(-Math.random()*8)+'s';
+ h.style.animationDuration=(6+Math.random()*6)+'s';h.style.fontSize=(12+Math.random()*20)+'px';
+ document.querySelector('.hearts').appendChild(h);
+}
+</script>
+</body></html>
